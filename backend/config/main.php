@@ -7,7 +7,7 @@ $params = array_merge(
 );
 
 return [
-    'id' => 'inmei-app-backend',
+    'id' => 'cms-app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'language' => 'zh-CN',
