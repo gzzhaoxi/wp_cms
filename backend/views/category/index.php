@@ -68,9 +68,6 @@ $this->params['breadcrumbs'][] = $this->title;
             }
         ],
         [
-            'attribute' => 'flag',
-        ],
-        [
             'attribute' => 'weigh',
         ],
         [

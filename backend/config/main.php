@@ -85,19 +85,20 @@ return [
         ],
         'i18n' => [
             'translations' => [//多语言包设置
-                'app*' => [
+                '*' => [
                     'class' => yii\i18n\PhpMessageSource::className(),
                     'basePath' => '@backend/messages',
-                    'sourceLanguage' => 'en-US',
+                    //'sourceLanguage' => 'en',
                     'fileMap' => [
                         'app' => 'app.php',
+                        'article' => 'article.php',
                         'app/error' => 'error.php',
                     ],
                 ],
                 'menu' => [
                     'class' => yii\i18n\PhpMessageSource::className(),
                     'basePath' => '@backend/messages',
-                    'sourceLanguage' => 'zh-CN',
+                    //'sourceLanguage' => 'zh-CN',
                     'fileMap' => [
                         'app' => 'menu.php',
                         'app/error' => 'error.php',
