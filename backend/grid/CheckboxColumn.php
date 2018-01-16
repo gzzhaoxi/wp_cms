@@ -19,6 +19,7 @@ class CheckboxColumn extends \yii\grid\CheckboxColumn
             $this->headerOptions['width'] = $this->width;
         }
         $this->contentOptions = ['style' => 'vertical-align: middle; text-align:center;'];
+
     }
 
 }

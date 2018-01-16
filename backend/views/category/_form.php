@@ -17,7 +17,6 @@ use common\widgets\JsBlock;
         <?=$form->field($model, 'parent_id')->dropDownList([])?>
         <?=$form->field($model, 'name')->textInput(['maxlength' => true])?>
         <?=$form->field($model, 'nickname')->textInput()?>
-        <?=$form->field($model, 'flag')->dropDownList(array())?>
         <?=$form->field($model, 'status')->radioList(Constants::getStatus())?>
         <?=$form->field($model, 'weigh')->textInput()?>
         <?=$form->field($model, 'keywords')->textInput()?>

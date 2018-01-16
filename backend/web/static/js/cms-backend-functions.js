@@ -189,3 +189,50 @@ function onChange(obj, id){
     });
     alert(obj.val());
 }
+
+$(document).ready(function(){
+    $("input[name='selection[]'],input[name='selection_all']").change(function() {
+        $('.btn-del').unbind('click');
+        var ids = [];
+        //$("input[name='selection[]']")
+        $("input[name='selection[]']").each(function(i,v){
+            if($(v).is(':checked')){
+                ids.push($(v).val())
+            }
+        })
+
+        if(ids.length>0){
+            $('.btn-del').removeClass('btn-disabled');
+            $('.btn-del').removeClass('disabled');
+            $('.btn-del').click(function(){
+                event.preventDefault();
+                if(confirm('确认要删除吗?删除的记录不可恢复!')){
+                    //通过ajax方式做处理
+                    $.ajax({
+                        url: $(this).attr('href')+'?id='+ids.join(','),
+                        type: "post",
+                        data: {},
+                        success: function (data) {
+                            if(data.err_msg){
+                                layer.msg(data.err_msg);
+                            }else{
+                                location.reload();
+                            }
+
+                        }
+                    }).always(function () {
+                        //clearTimeout(index);
+                    });
+
+                }
+
+            })
+
+        }else{
+            $('.btn-del').addClass('btn-disabled');
+            $('.btn-del').addClass('disabled');
+            return false
+        }
+    });
+
+})

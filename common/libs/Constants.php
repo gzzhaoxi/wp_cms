@@ -45,23 +45,34 @@ class Constants
     }
 
     //网站分类类型设置
-    const CATEGORY_TYPE_PROD = 1; //产品分类
-    const CATEGORY_TYPE_SERVICE = 2; //服务信息分类
-    const CATEGORY_TYPE_ARTICLE = 3; //媒体资讯分类
-    const CATEGORY_TYPE_STOCK = 4; //库存分类
-    const CATEGORY_TYPE_PROVIDE = 5; //供应商分类
-    const CATEGORY_TYPE_HR = 6; //人事分类
-    const CATEGORY_TYPE_EQUIPMENT = 7; //设备分类
+//    const CATEGORY_TYPE_PROD = 1; //产品分类
+//    const CATEGORY_TYPE_SERVICE = 2; //服务信息分类
+//    const CATEGORY_TYPE_ARTICLE = 3; //媒体资讯分类
+//    const CATEGORY_TYPE_STOCK = 4; //库存分类
+//    const CATEGORY_TYPE_PROVIDE = 5; //供应商分类
+//    const CATEGORY_TYPE_HR = 6; //人事分类
+//    const CATEGORY_TYPE_EQUIPMENT = 7; //设备分类
+//
+//    public static function getTopCategory( $key = null ) {
+//        $items = [
+//            self::CATEGORY_TYPE_PROD      => yii::t('app', 'const_category_prod'),
+//            self::CATEGORY_TYPE_SERVICE   => yii::t('app', 'const_category_service'),
+//            self::CATEGORY_TYPE_ARTICLE   => yii::t('app', 'const_category_article'),
+//            self::CATEGORY_TYPE_STOCK     => yii::t('app', 'const_category_stock'),
+//            self::CATEGORY_TYPE_PROVIDE   => yii::t('app', 'const_category_provide'),
+//            self::CATEGORY_TYPE_HR        => yii::t('app', 'const_category_hr'),
+//            self::CATEGORY_TYPE_EQUIPMENT => yii::t('app', 'const_category_equipment'),
+//        ];
+//        return self::getItems($items, $key);
+//    }
 
+    //网站分类类型设置
+    const CATEGORY_TYPE_ARTICLE = 1; //文章/资讯分类
+    const CATEGORY_TYPE_ADS = 2;   //广告分类
     public static function getTopCategory( $key = null ) {
         $items = [
-            self::CATEGORY_TYPE_PROD      => yii::t('app', 'const_category_prod'),
-            self::CATEGORY_TYPE_SERVICE   => yii::t('app', 'const_category_service'),
-            self::CATEGORY_TYPE_ARTICLE   => yii::t('app', 'const_category_article'),
-            self::CATEGORY_TYPE_STOCK     => yii::t('app', 'const_category_stock'),
-            self::CATEGORY_TYPE_PROVIDE   => yii::t('app', 'const_category_provide'),
-            self::CATEGORY_TYPE_HR        => yii::t('app', 'const_category_hr'),
-            self::CATEGORY_TYPE_EQUIPMENT => yii::t('app', 'const_category_equipment'),
+            self::CATEGORY_TYPE_ARTICLE      => yii::t('article', 'const_category_article'),
+            self::CATEGORY_TYPE_ADS   => yii::t('article', 'const_category_ads'),
         ];
         return self::getItems($items, $key);
     }

@@ -114,7 +114,6 @@ class Bar extends Widget
                 return Html::a('<i class="fa fa-trash-o"></i> ' . yii::t('app', 'btn_bar_delete'), Url::to(['delete']), [
                     'title' => yii::t('app', 'btn_bar_delete'),
                     'data-pjax' => '0',
-                    'data-confirm' => yii::t('app', 'Realy to delete?'),
                     'class' => 'btn btn-danger btn-del btn-disabled disabled',
                 ]);
             };
