@@ -19,6 +19,7 @@ body {
 .main-header .navbar .sidebar-toggle {
   position: absolute;
   width: 45px;
+  height: 50px;
   text-align: center;
 }
 .main-header .navbar #nav {

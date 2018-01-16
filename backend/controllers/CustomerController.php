@@ -28,8 +28,6 @@ class CustomerController extends \yii\web\Controller
 
     public function actions()
     {
-        //echo dirname(dirname(__DIR__)) . '/vendor';
-
         return [
             'index' => [
                 'class' => IndexAction::className(),
