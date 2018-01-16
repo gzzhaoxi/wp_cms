@@ -3,15 +3,15 @@ return [
     //'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'vendorPath' => dirname(dirname(__DIR__)) . '/../framework/vendor',
     'components' => [
-        /*'db' => [
+        'db' => [
             'class' => 'yii\db\Connection',
             //'dsn' => 'mysql:host=172.26.21.180:9707;dbname=isms',
-            'dsn' => 'mysql:host=172.26.21.180;port=9707;dbname=isms',
-            'username' => 'isms',
-            'password' => 'OE9d3Oy9v2gL1eK',
+            'dsn' => 'mysql:host=localhost;dbname=cms',
+            'username' => 'root',
+            'password' => '',
             'charset' => 'utf8',
-            'tablePrefix' => 'isms_',
-        ],*/
+            'tablePrefix' => 'cms_',
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
