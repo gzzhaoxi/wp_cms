@@ -337,9 +337,9 @@ class AdminUser extends ActiveRecord implements IdentityInterface
     public static function getSalesGroup(){
 
         $query = AdminUser::find();
-        $query->select('admin_user.username, admin_user.id');
-        $query->joinWith('adminRoleUser');//调用AdminRoleUser下关联方法
-        $query->where(['role_id' => AdminRoles::getSalesGroupId()]);
+        $query->select([AdminUser::tableName().'.username', AdminUser::tableName().'.id']);
+        $query->joinWith(['adminRoleUser']);//调用AdminRoleUser下关联方法
+        $query->where([AdminRoleUser::tableName().'.role_id' => AdminRoles::getSalesGroupId()]);
 
         //echo $query->createCommand()->getRawSql();
         //exit();
