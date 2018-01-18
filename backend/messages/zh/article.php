@@ -18,7 +18,7 @@ return [
     'is_push' => '是否发布',
     'is_delete' => '是否删除',
     'read_count' =>'阅读次数',
-
+    'photo' => '缩略图/图标',
     //常量
     'const_category_article' => '文章',
     'const_category_ads' => '广告',

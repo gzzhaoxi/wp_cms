@@ -48,7 +48,7 @@ class Article extends \yii\db\ActiveRecord
             [['category_id','title','author'], 'required'],
             [['category_id', 'created_at', 'updated_at', 'order', 'is_top', 'is_push', 'is_delete', 'read_count'], 'integer'],
             [['content'], 'string'],
-            [['title', 'desc'], 'string', 'max' => 255],
+            [['title', 'desc', 'photo'], 'string', 'max' => 255],
             [['author'], 'string', 'max' => 20],
             [['keywords'], 'string', 'max' => 100],
         ];
@@ -64,6 +64,7 @@ class Article extends \yii\db\ActiveRecord
             'category_id' => Yii::t('article', 'category'),
             'title' => Yii::t('article', 'title'),
             'author' => Yii::t('article', 'author'),
+            'photo' => Yii::t('article', 'photo'),
             'created_at' => Yii::t('app', 'pub_created_at'),
             'updated_at' => Yii::t('app', 'pub_updated_at'),
             'content' => Yii::t('article', 'content'),

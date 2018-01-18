@@ -19,6 +19,7 @@ use common\widgets\JsBlock;
         <?=$form->field($model, 'keywords')->textInput()?>
         <?=$form->field($model, 'desc')->textarea()?>
         <?=$form->field($model, 'order')->textInput()?>
+        <?=$form->field($model,'photo')->ueUpload(['filed'=>'Article[photo]'],['onclick'=>'setDefaultImg(this)','style'=>'width:50px']); ?>
         <?= $form->field($model, 'content')->widget('\common\widgets\ueditor\Ueditor',[
             'options'=>[
                 'initialFrameWidth' => '100%',
@@ -34,6 +35,23 @@ use common\widgets\JsBlock;
 </div>
 <?php JsBlock::begin() ?>
 <script>
+
+    _editor = UE.getEditor('upload_ue',{"serverUrl": "/article/ueditor"});
+
+    _editor.ready(function () {
+        _editor.setDisabled('insertimage');
+        _editor.hide();
+        console.log('haha')
+
+        _editor.addListener('beforeInsertImage', function (t, arg) {
+            for(var i in arg) {
+
+                var img = "<div style='display:inline-block;margin-top:10px'><img  onclick='setDefaultImg(this)' src='" + arg[i].src + "' style='width:50px'>";
+                img += "<input type='hidden' name='Article[photo]' value='" + arg[i].src + "'></div>";
+                $('#image-list').html(img)
+            }
+        })
+    })
     function loadChildList(type){
         $.get('<?=Url::to(['child-list', 'type' => ''])?>'+type, function(data){
             $('select#category-parent_id').html(data);

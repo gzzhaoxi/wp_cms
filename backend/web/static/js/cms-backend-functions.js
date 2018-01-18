@@ -190,6 +190,16 @@ function onChange(obj, id){
     alert(obj.val());
 }
 
+function upImage() {
+    var myImage = _editor.getDialog("insertimage");
+    myImage.open();
+}
+//弹出文件上传的对话框
+function upFiles() {
+    var myFiles = _editor.getDialog("attachment");
+    myFiles.open();
+}
+
 $(document).ready(function(){
     $("input[name='selection[]'],input[name='selection_all']").change(function() {
         $('.btn-del').unbind('click');
