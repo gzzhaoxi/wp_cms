@@ -25,7 +25,7 @@ class Constants
     public static function getStatus($key = null){
         $arr_status = [
             self::STATUS_NORMAL => yii::t('app', 'pub_status_normal'),
-            self::STATUS_BREAK => yii::t('app', 'pub_status_break'),
+            self::STATUS_BREAK  =>  yii::t('app', 'pub_status_break'),
             self::STATUS_DISABLED => yii::t('app', 'pub_status_disabled'),
         ];
         return self::getItems($arr_status, $key);
@@ -94,6 +94,20 @@ class Constants
             self::PRODUCTION_UNIT  => yii::t('app', 'const_production_unit'),
             self::PRODUCTION_PRINT  => yii::t('app', 'const_production_print'),
         ];
+        return self::getItems($items, $key);
+    }
+
+    //
+    const BACKEND_TYPE = 0;
+    const FRONTEND_TYPE = 1;
+
+    public static function getMenuType($key = null){
+        $items = [
+            self::BACKEND_TYPE  => yii::t('menu', 'const_menu_type_backend'),
+            self::FRONTEND_TYPE => yii::t('menu', 'const_menu_type_frontend'),
+        ];
+
+        //
         return self::getItems($items, $key);
     }
 

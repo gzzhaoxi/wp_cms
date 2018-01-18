@@ -1,21 +1,10 @@
 <?php
-/**
- * Author: lf
- * Blog: https://blog.feehi.com
- * Email: job@feehi.com
- * Created at: 2016-03-21 14:35
- */
 
-/**
- * @var $this yii\web\View
- * @var $model backend\models\Menu
- */
-
+use yii\Helpers\Url;
 use backend\widgets\ActiveForm;
 use common\libs\Constants;
 use backend\models\Menu;
-
-
+use common\widgets\JsBlock;
 
 $parent_id = yii::$app->getRequest()->get('parent_id', '');
 if ($parent_id != '') {
@@ -27,9 +16,9 @@ if ($parent_id != '') {
    <div class="ibox-content">
 
         <?php $form = ActiveForm::begin([]);?>
-        <?=$form->field($model, 'parent_id')->dropDownList(Menu::getMenusName(Menu::BACKEND_TYPE))?>
+        <?=$form->field($model, 'type')->radioList(Constants::getMenuType(), ['onclick' => "loadMenus($('input:radio[name=\'Menu[type]\']:checked').val())"])?>
+        <?=$form->field($model, 'parent_id')->dropDownList(Menu::getMenusName())?>
         <?=$form->field($model, 'name')->textInput(['maxlength' => 64])?>
-
         <?=$form->field($model, 'url')->textInput(['maxlength' => 512])?>
         <?=$form->field($model, 'method')->dropDownList(Constants::getHttpMethodItems())?>
         <?=$form->field($model, 'icon')->textInput(['maxlength' => 64])?>
@@ -41,3 +30,13 @@ if ($parent_id != '') {
 
    </div>
 </div>
+<?php JsBlock::begin() ?>
+    <script>
+        function loadMenus(type){
+            $.get('<?=Url::to(['load-menu', 'type' => ''])?>'+type, function(data){
+                $('select#menu-parent_id').html(data);
+            });
+
+        }
+    </script>
+<?php JsBlock::end();?>

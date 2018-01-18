@@ -12,16 +12,6 @@ use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\web\BadRequestHttpException;
 
-/**
- * This is the model class for table "{{%admin_roles}}".
- *
- * @property integer $id
- * @property integer $parent_id
- * @property string $role_name
- * @property integer $created_at
- * @property integer $updated_at
- * @property string $remark
- */
 class AdminRoles extends \yii\db\ActiveRecord
 {
     const ROLE_NAME_FOR_SALES = '业务员组';

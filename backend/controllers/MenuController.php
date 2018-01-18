@@ -15,6 +15,8 @@ use backend\models\MenuSearch;
 use backend\widgets\ActiveForm;
 use yii\web\Response;
 use yii\helpers\Url;
+use yii\helpers\Html;
+use yii\helpers\ArrayHelper;
 use common\libs\Constants;
 
 use backend\actions\CreateAction;
@@ -82,7 +84,6 @@ class MenuController extends \yii\web\Controller
             $model->parent_id = $parent_id;
         }
 
-
         $model->loadDefaultValues();
         yii::$app->getResponse()->format = Response::FORMAT_HTML;
 
@@ -105,6 +106,16 @@ class MenuController extends \yii\web\Controller
         echo '    </div>';
         echo '</div>';
 
+    }
+
+    //
+    public static function actionLoadMenu($type){
+        $rs = [];
+        $rs = Menu::getMenusName($type);
+        return Html::renderSelectOptions(
+            'parent_id',
+            ArrayHelper::merge([0 => Yii::t('app', 'pub_please_select')], $rs)
+        );
     }
 
 }

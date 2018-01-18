@@ -13,22 +13,6 @@ use common\helpers\FamilyTree;
 use yii\helpers\ArrayHelper;
 use yii\behaviors\TimestampBehavior;
 
-/**
- * This is the model class for table "{{%menu}}".
- *
- * @property string $id
- * @property int $type
- * @property string $parent_id
- * @property string $name
- * @property string $url
- * @property string $icon
- * @property string $sort
- * @property enum $target
- * @property enum is_absolute_url
- * @property string $is_display
- * @property string $created_at
- * @property string $updated_at
- */
 class Menu extends \yii\db\ActiveRecord
 {
     const BACKEND_TYPE = 0;
@@ -67,7 +51,7 @@ class Menu extends \yii\db\ActiveRecord
             [['type', 'is_absolute_url'], 'in', 'range' => [0, 1]],
             [['target'], 'in', 'range' => ['_blank', '_self']],
             [['name'], 'required'],
-            [['method'], 'required', 'on' => ['backend']],
+            //[['method'], 'required', 'on' => ['backend']],
         ];
     }
 
@@ -109,19 +93,19 @@ class Menu extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'pub_list_id'),
-            'type' => Yii::t('app', 'pub_type'),
-            'parent_id' => Yii::t('app', 'pub_parent_id'),
-            'name' => Yii::t('app', 'pub_name'),
-            'url' => Yii::t('app', 'pub_route'),
-            'method' => Yii::t('app', 'pub_http_method'),
-            'icon' => Yii::t('app', 'pub_image'),
-            'sort' => Yii::t('app', 'pub_sort'),
-            'is_absolute_url' => Yii::t('app', 'pub_is_abs').yii::t('app', 'pub_address'),
-            'target' => Yii::t('app', 'Target'),
-            'is_display' => Yii::t('app', 'pub_is_display'),
-            'created_at' => Yii::t('app', 'pub_created_at'),
-            'updated_at' => Yii::t('app', 'pub_updated_at'),
+            'id'                => Yii::t('app', 'pub_list_id'),
+            'type'              => Yii::t('app', 'pub_type'),
+            'parent_id'         => Yii::t('app', 'pub_parent_id'),
+            'name'              => Yii::t('app', 'pub_name'),
+            'url'               => Yii::t('app', 'pub_route'),
+            'method'            => Yii::t('app', 'pub_http_method'),
+            'icon'              => Yii::t('app', 'pub_image'),
+            'sort'              => Yii::t('app', 'pub_sort'),
+            'is_absolute_url'   => Yii::t('app', 'pub_is_abs').yii::t('app', 'pub_address'),
+            'target'            => Yii::t('app', 'Target'),
+            'is_display'        => Yii::t('app', 'pub_is_display'),
+            'created_at'        => Yii::t('app', 'pub_created_at'),
+            'updated_at'        => Yii::t('app', 'pub_updated_at'),
         ];
     }
 

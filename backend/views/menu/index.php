@@ -72,6 +72,14 @@ $this->params['breadcrumbs'][] = $this->title;
             }
         ],
         [
+            'attribute' => 'type',
+            'label' => yii::t('app', 'pub_type'),
+            'format' => 'raw',
+            'value' => function ($model) {
+                return Constants::getMenuType($model['type']);
+            }
+        ],
+        [
             'attribute' => 'url',
             'label' => yii::t('app', 'pub_route'),
             'width' => '140px',

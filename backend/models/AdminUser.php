@@ -11,20 +11,6 @@ use \yii\web\ForbiddenHttpException;
 use yii\web\UploadedFile;
 use yii\helpers\FileHelper;
 
-/**
- * This is the model class for table "admin_user".
- *
- * @property integer $id
- * @property string $username
- * @property string $auth_key
- * @property string $password_hash
- * @property string $password_reset_token
- * @property string $email
- * @property string $avatar
- * @property integer $status
- * @property integer $created_at
- * @property integer $updated_at
- */
 class AdminUser extends ActiveRecord implements IdentityInterface
 {
     /**
