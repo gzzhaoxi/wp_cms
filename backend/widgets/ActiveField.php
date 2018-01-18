@@ -226,6 +226,7 @@ class ActiveField extends \yii\widgets\ActiveField
         //$src = 'http://'.$_SERVER['HTTP_HOST']. '/static/images/none.jpg';
 
         $photo = json_decode($this->model->$pic,true);
+
         $str_html = '';
         if (!empty($photo) || !empty($this->model->$pic)) {
             if(!empty($options['filed'])){
@@ -240,19 +241,27 @@ class ActiveField extends \yii\widgets\ActiveField
                // $str_html.= "<p style='margin-top:8px;text-align:center;cursor:pointer;color:red'><i onclick='deleteImg(this)' class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></i></p>";
                 $str_html.= "</div>";
             }else{
+
+                if(empty($photo)){
+                    $photo = explode(',', $this->model->$pic);
+                }
                 $str_html = '';
                 foreach($photo as $k=>$v){
-                    $src =  yii::$app->params['web_img_url'] .'/'. $v['webImage']['path'];
+                    $src =  yii::$app->params['admin']['url'] .'/'. $v;
 
                     //是否存在主图选项
                     $ext_option = [];
-                    if(isset($v['is_main']) && $v['is_main'] == 1){
-                        $ext_option = ['class'=>'main-photo'] ;
-                    }
-                    $str_html.= "<div style='display:inline-block'>";
-                    $str_html.= Html::img($src, array_merge($img_option,$ext_option));
-                    $str_html.=Html::hiddenInput('photo[id][]',$v['webImage']['id']);
-                    $str_html.= "<p style='margin-top:8px;text-align:center;cursor:pointer;color:red'><i onclick='deleteImg(this)' class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></i></p>";
+
+                    $str_html.= "<div style='display:inline-block;margin-top:10px'>";
+                    $str_html.= Html::img($src, $img_option);
+                    $str_html.=Html::hiddenInput('photo[]',$v);
+                    $str_html.= "<p style='margin-top:8px;text-align:center;cursor:pointer;'>
+                    <i onclick='moveLeft(this)' style='font-size:20px;color:green' class=\"fa fa-arrow-circle-left\" aria-hidden=\"true\"></i>
+                    &nbsp;&nbsp;
+                    <i style='font-size:15px;color:red' onclick='deleteImg(this)' class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></i>
+                      &nbsp;&nbsp;
+                     <i onclick='moveRight(this)' style='font-size:20px;color:green' class=\"fa fa-arrow-circle-right\" aria-hidden=\"true\"></i>
+                    </p>";
                     $str_html.= "</div>";
                 }
             }

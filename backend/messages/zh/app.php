@@ -139,6 +139,11 @@ return [
     'pub_level'         => '等级',
     'pub_is_default'    => '默认',
     'pub_is_delete'     => '删除',
+    'pub_title' =>'标题',
+    'pub_photo' =>'图片',
+    'pub_link' => '链接',
+    'pub_position' => '位置',
+    'pub_text' => '文字',
 
     //联系人信息
     'pub_linkman'       => '联系人',

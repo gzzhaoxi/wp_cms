@@ -200,6 +200,7 @@ function upFiles() {
     myFiles.open();
 }
 
+
 $(document).ready(function(){
     $("input[name='selection[]'],input[name='selection_all']").change(function() {
         $('.btn-del').unbind('click');
