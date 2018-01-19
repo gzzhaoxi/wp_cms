@@ -23,6 +23,9 @@ return [
     'const_category_article' => '文章',
     'const_category_ads' => '广告',
 
+    //文章类公用
+    'pub_subhead' => '副标题',
+
     /*
     * ------------------------------------
     * page title 系统页面标题部分

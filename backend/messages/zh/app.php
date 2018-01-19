@@ -144,6 +144,9 @@ return [
     'pub_link' => '链接',
     'pub_position' => '位置',
     'pub_text' => '文字',
+    'pub_price' =>'价格',
+    'pub_detail' => '详情',
+    'pub_add_detail' => ' 添加详情',
 
     //联系人信息
     'pub_linkman'       => '联系人',
