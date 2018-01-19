@@ -16,7 +16,7 @@ use common\widgets\JsBlock;
 
 
         <?=$form->field($model, 'title')->textInput(['maxlength' => true])?>
-        <?=$form->field($model, 'type')->dropDownList(\backend\models\Category::getCategoriesName(Constants::CATEGORY_TYPE_ARTICLE))?>
+        <?=$form->field($model, 'type')->dropDownList(Constants::getAdsType())?>
         <?=$form->field($model,'photo')->ueUpload([],['onclick'=>'setDefaultImg(this)','style'=>'width  :100px;max-width:100%']); ?>
 
         <?=$form->field($model, 'text')->textarea()?>

@@ -77,6 +77,16 @@ class Constants
         return self::getItems($items, $key);
     }
 
+    const ADS_TYPE_NORMAL = 1; //单图
+    const ADS_TYPE_MANY = 2;   //轮播
+    public static function getAdsType($key = null){
+        $items = [
+            self::ADS_TYPE_NORMAL      => yii::t('ads', 'const_ads_normal'),
+            self::ADS_TYPE_MANY   => yii::t('ads', 'const_ads_many'),
+        ];
+        return self::getItems($items, $key);
+    }
+
     //生产工艺配置信息
     const PRODUCTION_SIZE  = 1;//规格
     const PRODUCTION_PAPER = 2;//纸张

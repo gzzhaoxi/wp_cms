@@ -46,8 +46,11 @@ class AdsController extends Controller
                         //单独处理相片逻辑
                         if(yii::$app->getRequest()->getIsPost()){
                             $photo = Yii::$app->request->post('photo');
-                            $_POST['Ads']['photo'] = implode(',',$photo);
-                            Yii::$app->request->setBodyParams($_POST);
+                            if(!empty($photo)){
+                                $_POST['Ads']['photo'] = implode(',',$photo);
+                                Yii::$app->request->setBodyParams($_POST);
+                            }
+
                         }
                     }
                 ]
@@ -60,8 +63,11 @@ class AdsController extends Controller
                         //单独处理相片逻辑
                         if(yii::$app->getRequest()->getIsPost()){
                             $photo = Yii::$app->request->post('photo');
-                            $_POST['Ads']['photo'] = implode(',',$photo);
-                            Yii::$app->request->setBodyParams($_POST);
+                            if(!empty($photo)){
+                                $_POST['Ads']['photo'] = implode(',',$photo);
+                                Yii::$app->request->setBodyParams($_POST);
+                            }
+
                         }
                     }
                 ]

@@ -11,17 +11,26 @@ return [
    * page title 系统页面标题部分
    * ------------------------------------
    */
-    'page_title_article' => '文章管理',
-    'page_title_article_list' => '文章列表',
-    'page_title_article_create' => '文章添加',
-    'page_title_article_update' => '文章修改',
+    'page_title_ads' => '广告管理',
+    'page_title_ads_list' => '广告列表',
+    'page_title_ads_create' => '广告添加',
+    'page_title_ads_update' => '广告修改',
 
     /*
      * ------------------------------------
      * function desc 系统功能清单描述部分
      * ------------------------------------
      */
-    'func_desc_article' => '用于对文章的进行添加、修改、发布等操作',
-    'func_desc_article_create' => '文章添加',
-    'func_desc_article_update' => '文章修改'
+    'func_desc_ads' => '用于对广的进行添加、修改、图片上传等操作',
+    'func_desc_ads_create' => '广告添加',
+    'func_desc_ads_update' => '广告修改',
+
+
+    /*
+    * ------------------------------------
+    * const 常量定义部分
+    * ------------------------------------
+    */
+    'const_ads_normal' => '单张',
+    'const_ads_many' => '轮播'
 ];

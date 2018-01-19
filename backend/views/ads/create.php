@@ -1,8 +1,8 @@
 <?php
 
-$this->title = yii::t('article', 'page_title_article_create');
-$this->description = yii::t('article', 'func_desc_article_create');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('article','page_title_article'), 'url' => ['index']];
+$this->title = yii::t('ads', 'page_title_ads_create');
+$this->description = yii::t('ads', 'func_desc_ads_create');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('ads','page_title_ads'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 
