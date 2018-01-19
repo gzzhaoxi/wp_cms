@@ -23,7 +23,7 @@ if(!empty($model->detail)){
         <?=$form->field($model, 'subhead')->textInput(['maxlength' => true])?>
         <?=$form->field($model, 'price')->textInput(['maxlength' => true])?>
         <?=$form->field($model, 'link')->textInput()?>
-
+        <?=$form->field($model, 'sort')->textInput()?>
         <div class="form-group">
             <label class="col-lg-2 control-label" for="order-customer_id"><?=Yii::t('app','pub_detail') ?></label>
             <div class="col-md-10 droppable sortable ui-droppable ui-sortable" style="">
@@ -69,7 +69,6 @@ if(!empty($model->detail)){
             <?php  } ?>
 
         </div>
-
         <?=$form->field($model, 'status')->radioList(Constants::getYesNoItems(),['style'=>'position:relative;top:-6px'])?>
         <?=$form->defaultButtons()?>
         <?php ActiveForm::end();?>

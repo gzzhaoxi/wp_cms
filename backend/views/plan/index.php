@@ -57,6 +57,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'attribute' => 'price',
         ],
         [
+            'attribute' => 'sort',
+        ],
+        [
             'attribute' => 'created_at',
             'format' => 'date',
             'width' => '70px',

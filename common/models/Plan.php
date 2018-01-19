@@ -41,7 +41,7 @@ class Plan extends \yii\db\ActiveRecord
         return [
             [['price'], 'number'],
             [['status'], 'required'],
-            [['status', 'created_at', 'updated_at'], 'integer'],
+            [['status','sort', 'created_at', 'updated_at'], 'integer'],
             [['detail'], 'string'],
             [['title'], 'string', 'max' => 50],
             [['subhead', 'link'], 'string', 'max' => 255],
@@ -58,6 +58,7 @@ class Plan extends \yii\db\ActiveRecord
             'title' => Yii::t('app', 'pub_title'),
             'subhead' => Yii::t('article', 'pub_subhead'),
             'price' => Yii::t('app', 'pub_price'),
+            'sort' => Yii::t('app', 'pub_sort'),
             'link' => Yii::t('app', 'pub_link'),
             'status' => Yii::t('app', 'pub_status'),
             'created_at' => Yii::t('app', 'pub_created_at'),
