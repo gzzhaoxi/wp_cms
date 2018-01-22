@@ -4,6 +4,7 @@ namespace common\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "{{%ads}}".
@@ -41,7 +42,7 @@ class Ads extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['type', 'position', 'status', 'created_at', 'updated_at'], 'integer'],
+            [['type','category_id', 'position', 'status', 'created_at', 'updated_at'], 'integer'],
             [['text', 'photo'], 'string'],
             [['title'], 'string', 'max' => 200],
             [['link'], 'string', 'max' => 255],
@@ -59,6 +60,7 @@ class Ads extends \yii\db\ActiveRecord
             'type' => Yii::t('app', 'pub_type'),
             'position' => Yii::t('app', 'pub_position'),
             'text' => Yii::t('app', 'pub_text'),
+            'category_id' => Yii::t('ads', 'category_id'),
             'photo' => Yii::t('app', 'pub_photo'),
             'link' => Yii::t('app', 'pub_link'),
             'status' => Yii::t('app', 'pub_status'),
@@ -66,4 +68,5 @@ class Ads extends \yii\db\ActiveRecord
             'updated_at' => Yii::t('app', 'pub_updated_at'),
         ];
     }
+
 }
