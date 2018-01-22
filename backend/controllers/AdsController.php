@@ -66,6 +66,9 @@ class AdsController extends Controller
                             if(!empty($photo)){
                                 $_POST['Ads']['photo'] = implode(',',$photo);
                                 Yii::$app->request->setBodyParams($_POST);
+                            }else{
+                                $_POST['Ads']['photo'] = '';
+                                Yii::$app->request->setBodyParams($_POST);
                             }
 
                         }
