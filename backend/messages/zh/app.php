@@ -117,6 +117,7 @@ return [
     'pub_description'   => '描述',
 
     'pub_none'          => '无',
+    'pub_back'          => '返回',
 
     'pub_parent_id'     => '父级分类',
     'pub_remark'        => '备注',
