@@ -17,6 +17,9 @@ return [
     'page_title_project_update' => '项目修改',
     'page_title_project_view' => '项目详情',
 
+    'page_title_project_msg' => '留言管理',
+    'page_title_project_msg_list' => '留言列表',
+    'page_title_project_msg_view' => '留言详情',
     /*
      * ------------------------------------
      * function desc 系统功能清单描述部分
@@ -26,4 +29,10 @@ return [
     'func_desc_project_create' => '计划添加',
     'func_desc_project_update' => '计划修改',
     'func_desc_project_view' => '项目详情',
+
+    'func_desc_project_msg' => '对项目的留言进行管理',
+    'func_desc_project_msg_view' => '留言详情',
+
+    //
+    'project_name'=>'项目名称'
 ];

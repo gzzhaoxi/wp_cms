@@ -11,9 +11,9 @@ use common\libs\Constants;
 use yii\Helpers\Html;
 use common\widgets\JsBlock;
 
-$this->title = yii::t('project', 'page_title_project_list');
-$this->description = yii::t('project', 'func_desc_project');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('project','page_title_project'), 'url' => ['index']];
+$this->title = yii::t('project', 'page_title_project_msg_list');
+$this->description = yii::t('project', 'func_desc_project_msg');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('project','page_title_project_msg'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
@@ -51,32 +51,19 @@ $this->params['breadcrumbs'][] = $this->title;
             'attribute' => 'name',
         ],
         [
-            'attribute' => 'photo',
-            'format' => 'raw',
-            'value' => function($model){
-                $src =  $model->photo;
-
-                return Html::img($src,['style'=>'width:50px;height:50px']);
-            }
+            'attribute' => 'tel',
         ],
 
         [
-            'attribute' => 'office_name',
+            'attribute' => 'email',
         ],
 
-        [
-            'attribute' => 'hit',
-        ],
-        [
-            'attribute' => 'msg_count',
-            'format' => 'raw',
-            'value' => function($model){
-                $num = \backend\models\ProjectMsg::find()->where(['project_id'=>$model->id])->count();
-                return Html::a($num,'/project-msg?project_id='.$model->id,['style'=>'text-decoration:underline']);
-            }
-        ],
         [
             'attribute' => 'user.username',
+        ],
+        [
+            'label' => Yii::t('project','project_name'),
+            'attribute' => 'projects.name',
         ],
         [
             'attribute' => 'created_at',
@@ -91,7 +78,7 @@ $this->params['breadcrumbs'][] = $this->title;
         [
             'class' => ActionColumn::class,
             'width' => '60px',
-            'template' => ' {update} {delete}',
+            'template' => ' {update-layer} {delete}',
         ]
     ],
 ]); ?>

@@ -11,6 +11,7 @@ namespace backend\models;
 
 class Projects extends \common\models\Projects
 {
+    public $msg_count;
     /**
      * 关联用户表
      * @return \yii\db\ActiveQuery
