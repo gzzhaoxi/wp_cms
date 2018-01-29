@@ -9,6 +9,9 @@ use yii\helpers\Html;
 
 $this->title = $name;
 ?>
+<div id="pricing" class="pricing-section">
+  <div class="container">
+    <div class="row">
 <div class="site-error">
 
     <h1><?= Html::encode($this->title) ?></h1>
@@ -25,3 +28,7 @@ $this->title = $name;
     </p>
 
 </div>
+</div>
+</div>
+</div>
+

@@ -667,6 +667,7 @@ li {
     #main-slide .slider-content h1{
 		font-size: 68px;
 	}
+.user-feature{display:none;}
 }
 
 
@@ -682,11 +683,14 @@ li {
 		margin-top: 0;
         line-height: 25px;
 	}
-
+	.user-feature{display:block;}
 	.slider.btn{
 		padding: 5px 25px;
 		margin-top: 5px;
 		font-size: 16px;
+	}
+	#main-slide .item .slider-content{
+		display: none;
 	}
     
    /* #main-slide .item {
@@ -719,7 +723,7 @@ li {
     #main-slide .item .slider-content{
 		display: none;
 	}
-    
+	.user-feature{display:block;}
     /*#main-slide .item {
         height: 400px;
     }*/
@@ -732,7 +736,7 @@ li {
     #main-slide .item .slider-content{
 		display: none;
 	}
-    
+	.user-feature{display:block;}
     /*#main-slide .item {
         height: 180px;
     }*/

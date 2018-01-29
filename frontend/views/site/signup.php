@@ -10,6 +10,9 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Signup';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<div id="pricing" class="pricing-section">
+  <div class="container">
+    <div class="row">
 <div class="site-signup">
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -30,6 +33,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
 
             <?php ActiveForm::end(); ?>
+        </div>
+    </div>
+</div>
         </div>
     </div>
 </div>

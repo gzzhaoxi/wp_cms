@@ -9,8 +9,12 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
-
+use common\models\Article;
+use common\models\Ads;
+$menu = Article::find()->select('id,title')->where(['category_id'=>13,'is_top'=>1,'is_delete'=>0,'is_push'=>1])->orderBy('order ASC')->limit(4)->asArray()->all();
+$footer_menu = Article::find()->select('id,title')->where(['category_id'=>20,'is_top'=>1,'is_delete'=>0,'is_push'=>1])->orderBy('order ASC')->limit(4)->asArray()->all();
 AppAsset::register($this);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -30,13 +34,18 @@ AppAsset::register($this);
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header page-scroll">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="navbar-brand page-scroll" href="#page-top"><img src="/static/images/logo.png"></a> </div>
+      <a class="navbar-brand page-scroll" href="/"><img src="/static/images/logo.png"></a> </div>
     
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
-        <li> <a class="page-scroll" href="#">Register</a> </li>
-        <li> <a class="page-scroll" href="#">Login</a> </li>
+      <?php if (Yii::$app->user->isGuest) {?>
+        <li> <a class="page-scroll" href="/site/signup">Signup</a> </li>
+        <li> <a class="page-scroll" href="/site/login">Login</a> </li>
+        <?php }else{?>
+        <li> <a class="page-scroll" href="/user/index"><?=Yii::$app->user->identity->username?></a> </li>
+        <li> <a class="page-scroll" href="/site/logout">Logout</a> </li>
+        <?php }?>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 
@@ -49,10 +58,9 @@ AppAsset::register($this);
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li> <a class="page-scroll" href="#">iWalkthrough Content Marketing Solution</a> </li>
-        <li> <a class="page-scroll" href="#">DIY Video Production</a> </li>
-        <li> <a class="page-scroll" href="#">DIY Virtual Realisty Production</a> </li>
-        <li> <a class="page-scroll" href="#">Price & Plans</a> </li>
+        <?php foreach ($menu as $m):?>
+        <li> <a class="page-scroll" href="/article/info?id=<?=$m['id']?>"><?=$m['title']?></a> </li>
+        <?php endforeach;?>
       </ul>
     </div>
     <!-- /.navbar-collapse --> 
@@ -62,28 +70,24 @@ AppAsset::register($this);
         <?= $content ?>
         <section id="partner">
   <div class="container">
-    <div class="row">
+   <!-- <div class="row">
       <div class="col-md-12">
         <div class="section-title text-center">
           <h3>Our Honorable Partner</h3>
           <p>Duis aute irure dolor in reprehenderit in voluptate</p>
         </div>
       </div>
-    </div>
+    </div> -->
+    <?php $partner_list = Ads::find()->where(['category_id'=>19,'status'=>1])->orderBy('id DESC')->asArray()->all()?>
+    <?php if ($partner_list):?>
     <div class="row">
       <div class="clients">
-        <div class="col-md-12"> <img src="/static/images/logos/themeforest.jpg" class="img-responsive" alt="..."> </div>
-        <div class="col-md-12"> <img src="/static/images/logos/creative-market.jpg" class="img-responsive" alt="..."> </div>
-        <div class="col-md-12"> <img src="/static/images/logos/designmodo.jpg" class="img-responsive" alt="..."> </div>
-        <div class="col-md-12"> <img src="/static/images/logos/creative-market.jpg" class="img-responsive" alt="..."> </div>
-        <div class="col-md-12"> <img src="/static/images/logos/microlancer.jpg" class="img-responsive" alt="..."> </div>
-        <div class="col-md-12"> <img src="/static/images/logos/themeforest.jpg" class="img-responsive" alt="..."> </div>
-        <div class="col-md-12"> <img src="/static/images/logos/microlancer.jpg" class="img-responsive" alt="..."> </div>
-        <div class="col-md-12"> <img src="/static/images/logos/designmodo.jpg" class="img-responsive" alt="..."> </div>
-        <div class="col-md-12"> <img src="/static/images/logos/creative-market.jpg" class="img-responsive" alt="..."> </div>
-        <div class="col-md-12"> <img src="/static/images/logos/designmodo.jpg" class="img-responsive" alt="..."> </div>
+        <?php foreach ($partner_list as $pl):?>
+            <div class="col-md-12"> <img src="<?=$pl['photo']?>" class="img-responsive" alt="..." height="50"> </div>
+        <?php endforeach;?>
       </div>
     </div>
+    <?php endif;?>
   </div>
 </section>
 <section id="contact" class="contact">
@@ -91,13 +95,13 @@ AppAsset::register($this);
   <footer class="style-1">
     <div class="container">
       <div class="row">
-        <div class="col-md-8 col-xs-12"> <span class="copyright">Copyright C 2018 TouchIn Media Pty Ltd	|	Privacy Policy	|	Terms of Use	|	Contct Us	|	About Us	</span> </div>
+        <div class="col-md-8 col-xs-12"> <span class="copyright">Copyright C 2018 TouchIn Media Pty Ltd	<?php foreach ($footer_menu as $fm):?>|	<a href="/article/info?id=<?=$fm['id']?>" style="color:#999" title="<?=$fm['title']?>"><?=$fm['title']?></a><?php endforeach;?>	</span> </div>
         
         <div class="col-md-4 col-xs-12">
           <div class="footer-link">
             <ul class="pull-right">
-              <li><a href="#">Power by CampaignPROS</a> </li>
-              <li><a href="#">VR Partner  iStaging</a> </li>
+              <li><a style="color:#999">Power by CampaignPROS</a> </li>
+              <li><a style="color:#999">VR Partner  iStaging</a> </li>
             </ul>
           </div>
         </div>

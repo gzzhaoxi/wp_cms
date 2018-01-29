@@ -37,6 +37,7 @@ class AppAsset extends AssetBundle
         'static/js/styleswitcher.js',
         'static/js/jqBootstrapValidation.js',
         'static/js/script.js',
+        'static/js/clipboard-polyfill.js',
     ];
     public $depends = [
 //         'yii\web\YiiAsset',
