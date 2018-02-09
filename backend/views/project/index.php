@@ -25,16 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= Bar::widget(['template' => '{refresh} {delete}'])?>
 
 
-    <!-- ./right buttons -->
-    <!--
-    <div class="dropdown btn-group">
-        <a class="btn btn-primary btn-more dropdown-toggle btn-disabled disabled" data-toggle="dropdown"><i class="fa fa-cog"></i> {:__('More')}</a>
-        <ul class="dropdown-menu text-left" role="menu">
-            <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="status=normal"><i class="fa fa-eye"></i> {:__('Set to normal')}</a></li>
-            <li><a class="btn btn-link btn-multi btn-disabled disabled" href="javascript:;" data-params="status=hidden"><i class="fa fa-eye-slash"></i> {:__('Set to hidden')}</a></li>
-        </ul>
-    </div>
-    -->
+    <?php  echo $this->render('_search', ['model'=>$searchModel]); ?>
 </div>
 <!-- ./common buttons end -->
 
@@ -54,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'attribute' => 'photo',
             'format' => 'raw',
             'value' => function($model){
-                $src =  $model->photo;
+                $src =  Yii::$app->params['web_url'].$model->photo;
 
                 return Html::img($src,['style'=>'width:50px;height:50px']);
             }

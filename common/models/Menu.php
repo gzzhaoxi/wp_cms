@@ -138,7 +138,7 @@ class Menu extends \yii\db\ActiveRecord
      * @param int $type
      * @return array
      */
-    public static function getMenusName($type=self::BACKEND_TYPE)
+    public static function getMenusName($type=0)
     {
         $menus = self::getMenus($type);
         $data = [];

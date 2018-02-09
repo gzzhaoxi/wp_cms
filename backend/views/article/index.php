@@ -51,6 +51,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'attribute' => 'title',
         ],
         [
+            'attribute' => 'category_id',
+            'format' => 'raw',
+            'value' => function ($model, $key, $index, $column) {
+                $info = \backend\models\Category::find()->where(['id'=>$model->category_id])->asArray()->one();
+                return $info['name'];
+
+            }
+        ],
+        [
             'attribute' => 'author',
         ],
         [
@@ -143,7 +152,7 @@ $this->params['breadcrumbs'][] = $this->title;
         [
             'class' => ActionColumn::class,
             'width' => '60px',
-            'template' => '{view-layer} {update} {delete}',
+            'template' => '{update} {delete}',
         ]
     ],
 ]); ?>

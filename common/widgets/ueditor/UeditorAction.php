@@ -129,7 +129,10 @@ class UeditorAction extends Action
          * )
          */
         /* 返回数据 */
-        return json_encode($up->getFileInfo());
+        $info = $up->getFileInfo();
+        $url = 'http://admin.iwalkthrough.com.au/'.$info['url'];
+        $info['url'] = $url;
+        return json_encode($info);
     }
     /**
      * 获取已上传的文件列表

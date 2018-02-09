@@ -232,7 +232,12 @@ class ActiveField extends \yii\widgets\ActiveField
             if(!empty($options['filed'])){
 
                 $str_html = '';
-                $src =  yii::$app->params['admin']['url'] .'/'. $this->model->$pic;
+                if(strrpos($this->model->$pic,'http')!==false){
+                    $src =   $this->model->$pic;
+                }else{
+                    $src =  yii::$app->params['admin']['url'] .'/'. $this->model->$pic;
+                }
+
 
                 //是否存在主图选项
                 $str_html.= "<div style='display:inline-block;margin-top:10px'>";
@@ -247,7 +252,11 @@ class ActiveField extends \yii\widgets\ActiveField
                 }
                 $str_html = '';
                 foreach($photo as $k=>$v){
-                    $src =  yii::$app->params['admin']['url'] .'/'. $v;
+                    if(strrpos($v,'http')===false) {
+                        $src = yii::$app->params['admin']['url'] . '/' . $v;
+                    }else{
+                        $src  = $v;
+                    }
 
                     //是否存在主图选项
                     $ext_option = [];

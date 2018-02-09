@@ -66,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
         [
             'class' => ActionColumn::class,
             'width' => '60px',
-            'template' => '{view-layer} {update-layer} {delete}',
+            'template' => '{update-layer} {delete}',
         ]
     ],
 ]); ?>

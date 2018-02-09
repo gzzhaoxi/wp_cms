@@ -40,7 +40,7 @@ $message_count = \common\models\ProjectMsg::find()->where(['user_id'=>$model->us
                 <label style="position:relative;top:40px" class="col-lg-2 control-label" for="order-customer_id">Photo:</label>
                 <div class="col-sm-8 col-xs-12">
                     <div >
-                        <img src="<?=$model->photo ?>"  style="width:100px;height:100px">
+                        <img src="<?=Yii::$app->params['web_url'].$model->photo ?>"  style="width:100px;height:100px">
                     </div>
                 </div>
             </div>

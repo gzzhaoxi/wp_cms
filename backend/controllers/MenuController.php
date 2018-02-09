@@ -44,7 +44,7 @@ class MenuController extends \yii\web\Controller
                     $data = [
                         'dataProvider' => $dataProvider,
                         'searchModel' => $searchModel,
-                    ];
+                     ];
                     return $data;
                 }
             ],

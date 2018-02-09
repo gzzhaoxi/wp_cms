@@ -33,5 +33,6 @@ use common\widgets\JsBlock;
             $('select#category-parent_id').html(data);
         });
     }
+    $('select#category-type').trigger('change');
 </script>
 <?php JsBlock::end();?>
